@@ -42,7 +42,7 @@ def script_action(script, status):
         if pid_file.is_file():
             with open(pid_file_name, 'r') as f:
                 pid = f.read()
-                os.kill(int(pid), signal.SIGSTOP)
+                os.kill(int(pid), signal.SIGTERM)
                 os.remove(pid_file_name)
 
 # this exist only because we can retrive actual check bock pressed whit tkinter
