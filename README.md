@@ -2,9 +2,9 @@
   <img src='crocohot.png' width='144'>
 </h1>
 
-# crocohotkey 
-Why need auto hotkey when you can use a real language like python to make any macro, mouse and/or keyboard?
-This repo aim to provide some pynput script example as well as a gui written in tk to quickly enable/disable any scripts
+# crocohotkey
+Who need [autohotkey](https://www.autohotkey.com/) when you can use a real language like python to make any macro?
+This repo aim to provide some [pynput](https://pynput.readthedocs.io/en/latest/) scripts example as well as a gui written in tk to quickly enable/disable any of those scripts
 
 ## Dependencies
 * Tkinter should come by default with python if not you can try `apt-get install python3-tk` for debian based system
