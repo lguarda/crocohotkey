@@ -20,7 +20,7 @@ def crocohotkey(window):
     UID = os.getuid()
     scripts_dir = os.getenv("HOME") + "/.local/share/crocohotkey"
 
-    scripts = [f for f in os.listdir(scripts_dir) if not f.startswith(".")]
+    scripts = [f for f in os.listdir(scripts_dir) if f.startswith("croco")]
     scripts_status = {}
     scripts_box = {}
 
