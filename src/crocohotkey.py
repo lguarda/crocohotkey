@@ -96,7 +96,7 @@ def crocohotkey(window):
 if __name__ == "__main__":
 
     def close(event):
-        event.widget.withdraw()
+        event.widget.winfo_toplevel().withdraw()
         sys.exit()
 
     window = tk.Tk()
