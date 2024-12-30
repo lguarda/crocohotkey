@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import re
 import signal
 import subprocess
 import sys
@@ -19,8 +20,9 @@ def crocohotkey(window):
     """
     UID = os.getuid()
     scripts_dir = os.getenv("HOME") + "/.local/share/crocohotkey"
-
+    regex = r"croco(.*)\.py"
     scripts = [f for f in os.listdir(scripts_dir) if f.startswith("croco")]
+    scripts = list(map(lambda f: re.sub(regex, "\\1", f, 0), scripts))
     scripts_status = {}
     scripts_box = {}
 
@@ -48,17 +50,19 @@ def crocohotkey(window):
 
         return closure
 
-    def callback(sv):
-        out = sv.get()
+    def callback(search_text):
+        out = search_text.get()
         for script in scripts:
-            if script.find(out) != -1:
+            if script.lower().find(out.lower()) != -1:
                 scripts_box[script].pack()
             else:
                 scripts_box[script].pack_forget()
 
-    sv = tk.StringVar()
-    sv.trace("w", lambda name, index, mode, sv=sv: callback(sv))
-    e = tk.Entry(window, textvariable=sv)
+    search_text = tk.StringVar()
+    search_text.trace(
+        "w", lambda name, index, mode, search_text=search_text: callback(search_text)
+    )
+    e = tk.Entry(window, textvariable=search_text)
     e.pack()
     e.focus_set()
 
