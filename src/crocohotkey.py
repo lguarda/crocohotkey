@@ -9,6 +9,16 @@ import sys
 import tkinter as tk
 from pathlib import Path
 
+def fuzzy_match(string, into):
+    string = string.lower()
+    into = into.lower()
+
+    for char in string:
+        offset = into.find(char)
+        if offset < 0:
+            return False
+        into = into[offset:]
+    return True
 
 def crocohotkey(window):
     """
@@ -51,9 +61,9 @@ def crocohotkey(window):
         return closure
 
     def callback(search_text):
-        out = search_text.get()
+        input = search_text.get()
         for script in scripts:
-            if script.lower().find(out.lower()) != -1:
+            if fuzzy_match(input, script):
                 scripts_box[script].pack()
             else:
                 scripts_box[script].pack_forget()
