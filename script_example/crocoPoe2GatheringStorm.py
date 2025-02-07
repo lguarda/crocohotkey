@@ -2,12 +2,11 @@
 import pynput
 from keyboardLongPress import keyboardLongPress
 
-delay = 1.350
+delay = 0.800
 key='r'
 
 def on_click(x, y, button, pressed):
-    #if button == pynput.mouse.Button.button9 and pressed:
-    if button == pynput.mouse.Button.left and pressed:
+    if button == pynput.mouse.Button.button8 and pressed:
         keyboardLongPress(key, delay)
     return True
 
