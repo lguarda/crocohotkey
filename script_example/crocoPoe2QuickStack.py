@@ -133,4 +133,5 @@ listener = keyboard.GlobalHotKeys(
     {"<ctrl>+<alt>+h": trigger_quick_stack, "<ctrl>+<alt>+i": set_top_position_on_mouse}
 )
 
-listener.start().join()
+listener.start()
+listener.join()
