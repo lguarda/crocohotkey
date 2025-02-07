@@ -41,7 +41,7 @@ def crocohotkey(window):
 
     def script_action(script, status):
         if status == 1:
-            proc = subprocess.Popen(f"{scripts_dir}/{script}", start_new_session=True)
+            proc = subprocess.Popen(["/home/leo/clone/pynput/build/bin/python3", f"{scripts_dir}/croco{script}.py"], start_new_session=True)
             with open(pid_path(script), "w") as f:
                 f.write(str(proc.pid))
         else:
