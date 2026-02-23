@@ -37,7 +37,7 @@ def mirror():
     keyboard_sim.release(weapon_key)
 
 def on_click(x, y, button, pressed):
-    if button == pynput.mouse.Button.button9 and pressed:
+    if button == pynput.mouse.Button.button8 and pressed:
         discord()
     elif button == pynput.mouse.Button.middle and pressed:
         mirror()
